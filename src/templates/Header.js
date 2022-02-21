@@ -4,7 +4,7 @@ const Header = () => {
         <div class="Header-logo">
           <h1>
             <a href="#/">
-              100tifico.oc
+              100tifico.rf
             </a>
           </h1>
         </div>
