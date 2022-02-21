@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -13,6 +12,7 @@ module.exports = {
   resolve: {
     extensions: ['.js'],
   },
+  mode: 'development',
   module: {
     rules: [
       {
@@ -45,6 +45,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'assets/[name].[contenthash].css'
     }),
-    new CleanWebpackPlugin(),
   ],
+  devServer: {
+    static: path.join(__dirname, 'dist'),
+    compress: true,
+    historyApiFallback: true,
+    port: 8080,
+    open: true,
+  }
 };
